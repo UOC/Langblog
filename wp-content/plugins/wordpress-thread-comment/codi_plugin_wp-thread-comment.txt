@@ -1,0 +1,7 @@
+<div class="<?=(get_userdata($comment->user_id)->user_level >= 5)?'comment-childs_teacher':'comment-childs_student'?><?php echo $deep%2 ? ' chalt' : ''; ?>" id="comment-[ID]"><?php if(function_exists("get_avatar")) echo get_avatar( $comment, 32 ); 
+
+?><p><cite>[author]</cite> Diu:[moderation]<br /><small class="commentmetadata"> <?php comment_date('j') ?> <?php _e('de') ?> <?php comment_date('F') ?> 
+
+<?php _e('del') ?> <?php comment_date('Y') ?>
+      <?php _e('at')?>
+      <?php comment_time() ?></small></p>[content]</div>
