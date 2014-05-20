@@ -1,0 +1,64 @@
+input,select,textarea, #debug_info div{ /* Else inputs do not work on iOS */
+    -webkit-user-select: text;
+}
+
+* { /* Make text unselectable, with the exception above for iOS text inputs */
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+
+.blkTransparent {
+	background: rgba(0, 0, 0, 0.6);
+	color: #FFFFFF;	
+}
+
+.halfwidth {
+	width: 50%;
+	position: absolute;
+}
+
+.thinBorder {
+	border-bottom: 1px solid #CFCFCF;
+	border-right:1px solid #CFCFCF;
+	border-left:1px solid #D7D7D7;
+	border-top: 1px solid #D7D7D7;
+}
+
+#viewport {
+	margin: 20px 0;
+	position: relative;
+}
+
+#videoViewer {
+	width:50%;margin:0px auto;float:left;
+}
+#noVideo {
+	line-height: 250px;
+	color: #444;
+	background: #F2F2F2;
+	text-align: center;
+}
+
+#loading_cover {
+	background: white;
+    /*background: linear-gradient(to top, #373737 0px, #464646 5px) repeat scroll 0 0 #464646;*/
+    height: 100%;
+    position: absolute;
+    width: 860px;
+    z-index: 9999;
+}
+
+#loading_cover div {
+    background-image: url("../img/loader_bar.gif");
+    height: 9px;
+    left: 350px;
+    position: relative;
+    top: 200px;
+    width: 192px;
+}
+
