@@ -21,13 +21,14 @@ Copy all files from wp-content/* to the folder wp-content/ in the wordpress dist
 
 ## Configuration of Learning Tools Interoperability (LTI)
 * LTI can be found here: http://imsglobal.org/lti/
-### Configuration:
- The configuration of the consumers requires authentication as superAdministrator and is found in Network Dashboard → Settings → LTI Consumer Keys. Here you can manage the different consumer keys and associated secret codes, and if has custom username (usually is custom_username)
-### The URL to link with the LTI provider from the LMS has the following structure: 
+* Configuration:
+ The configuration of the consumers requires authentication as superAdministrator and is found in Network Dashboard → Settings → LTI Consumer Keys. 
+ Here you can manage the different consumer keys and associated secret codes, and if has custom username (usually is custom_username)
+* The URL to link with the LTI provider from the LMS has the following structure: 
  http://<ip>/wordpress/index.php
 
 ## More information 
  https://github.com/UOC/LangBLOG/blob/master/doc/LANGblog-install.pdf?raw=true
 
 
-Speak Apps PRoject has been funded with support from the Lifelong Learning Programme of the European Commission. This document reflects only the views of the authors, and the European Commission cannot be held responsible for any use which may be made of the information contained therein.
+Speak Apps Project has been funded with support from the Lifelong Learning Programme of the European Commission. This document reflects only the views of the authors, and the European Commission cannot be held responsible for any use which may be made of the information contained therein.
