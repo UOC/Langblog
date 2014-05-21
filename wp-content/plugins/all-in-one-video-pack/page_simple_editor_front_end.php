@@ -75,6 +75,21 @@
 			topWindow.location.reload();
 		}
 	}
+	
+	// ***************** afegit Marc Gener 11/04/2011 ******************** 	
+		var callbacksObj = {
+  publishHandler:afterPublishHandler,
+  closeHandler:closeEditorHandler
+};
+
+function afterPublishHandler(obj) {
+}
+
+function closeEditorHandler(obj) {
+onSimpleEditorBackClick(obj.modified);
+}
+// ***************** afegit Marc Gener 11/04/2011 ******************** 	
+
 </script>
 </head>
 <body>

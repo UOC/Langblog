@@ -1,31 +1,22 @@
 <?php
+/**
+ * @package Kaltura
+ */
 /*
-Plugin Name: All-in-one-videopacke
-Plugin URI: http://www.kaltura.org
-Description: STEPS for LB
-Version: None
-Author: Kaltura
-Author URI: http://www.kaltura.org
-License: Public Domain
+Plugin Name: all-in-one-video-pack
+Plugin URI: http://www.uoc.edu/
+Description: This is not just another video embed tool - it includes every functionality you might need for video and rich-media, including the ability to upload/ record/import videos directly to your post, edit and remix content with an online video editor, enable video responses, manage and track your video content, create playlists and much more... And Kaltura covers all hosting and streaming costs for FREE up to 10GB.
+Version: 2.4.4
+Author: Uoc
+Author URI: http://www.uoc.edu/
+License: GPLv2 or later
 */
-
+session_start();
 require_once('settings.php');
 require_once('lib/kaltura_client.php');
 require_once('lib/kaltura_helpers.php');
+
  
-
-// a workaround when using symbolic links and __FILE__ holds the resolved path
-$all_in_one_video_pack_file = __FILE__;
-if (isset($mu_plugin)) {
-    $all_in_one_video_pack_file = $mu_plugin;
-}
-if (isset($network_plugin)) {
-    $all_in_one_video_pack_file = $network_plugin;
-}
-if (isset( $plugin ) ) {
-    $all_in_one_video_pack_file = $plugin;
-}
-
 // comments filter
 if (KalturaHelpers::compareWPVersion("2.5", "=")) 
 	// in wp 2.5 there was a bug in wptexturize which corrupted our tag with unicode html entities
@@ -85,12 +76,9 @@ add_filter('tiny_mce_version', 'kaltura_mce_version');
  * @param $post
  * @return unknown_type
  */
-function kaltura_publish_post($post_id, $post)
-{
+function kaltura_publish_post($post_id, $post){	
 	require_once("lib/kaltura_wp_model.php");
-
 	$content = $post->post_content;
-
 	$shortcode_tags = array();
 	
 	global $kaltura_post_id, $kaltura_widgets_in_post;
@@ -100,6 +88,41 @@ function kaltura_publish_post($post_id, $post)
 
 	// delete all widgets that doesn't exists in the post anymore
 	KalturaWPModel::deleteUnusedWidgetsByPost($kaltura_post_id, $kaltura_widgets_in_post);
+	
+	$idEntry = $post->post_content;
+	$idEntry = explode('entryid="',$idEntry);
+	$idEntry = explode('"',$idEntry[1]);
+	$idEntry = $idEntry[0];
+	$file = "all-in-one-video-pack/API/setCategory.php";
+	global $blog_id;
+	$bloginfo = $blog_id;
+	
+	//$blogSemestre = $current_site->path;
+	
+	$blogSemestre = get_bloginfo('url');
+	$blogSemestre = explode("blogaula",$blogSemestre);
+	$blogSemestre = substr($blogSemestre[1],0,-1);
+	$blogSemestre = explode("/",$blogSemestre);
+	$blogSemestre = $blogSemestre[0];
+	if($blogSemestre==null || $blogSemestre=="") $blogSemestre = date(Y);
+	
+	$nombreTheme = get_template();
+	
+	if(isset($_SESSION['typeAula'])) $typeA = $_SESSION['typeAula'];
+	else $typeA = "speakapps";
+	
+	$url = plugin_dir_url( $file )."setCategory.php?id=".$idEntry."&bloginfo=".$bloginfo."&typeaula=".$typeA."&blogSemestre=".$blogSemestre."&nombreTheme=".$nombreTheme; 
+		
+	if($idEntry!=null){
+		$ch = curl_init(); 
+    	curl_setopt($ch, CURLOPT_URL, $url); 
+    	curl_setopt($ch, CURLOPT_HEADER, TRUE); 
+    	curl_setopt($ch, CURLOPT_NOBODY, TRUE); // remove body 
+    	curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE); 
+    	$head = curl_exec($ch); 
+    	$httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE); 
+    	curl_close($ch);
+	}
 }
 
 add_action("publish_post", "kaltura_publish_post", 10, 2);
@@ -176,16 +199,48 @@ add_action("wp_set_comment_status", "kaltura_set_comment_status", 10, 2);
  */
 function kaltura_comment_post($comment_id, $approved)
 {
-	if ($approved) 
-	{
+	if ($approved){
 		require_once("lib/kaltura_wp_model.php");
-
 		global $kaltura_comment_id;
-		$kaltura_comment_id = $comment_id;
-		
+		$kaltura_comment_id = $comment_id;	
 		$comment = get_comment($comment_id);
 		KalturaHelpers::runKalturaShortcode($comment->comment_content, "_kaltura_find_comment_widgets");
 	}
+	
+	
+	$idEntry = $comment->comment_content;
+	$idEntry = explode('entryid="',$idEntry);
+	$idEntry = explode('"',$idEntry[1]);
+	$idEntry = $idEntry[0];
+	
+	$file = "all-in-one-video-pack/API/setCategory.php";
+	global $blog_id;
+	$bloginfo = $blog_id;
+	//$blogSemestre = $current_site->path;
+	
+	$blogSemestre = get_bloginfo('url');
+	$blogSemestre = explode("blogaula",$blogSemestre);
+	$blogSemestre = substr($blogSemestre[1],0,-1);
+	$blogSemestre = explode("/",$blogSemestre);
+	$blogSemestre = $blogSemestre[0];
+	if($blogSemestre==null || $blogSemestre=="") $blogSemestre = date(Y);
+	
+	$nombreTheme = get_template();
+	if(isset($_SESSION['typeAula'])) $typeA = $_SESSION['typeAula'];
+	else $typeA = "speakapps";
+	
+	if($idEntry!=null){
+		$url = plugin_dir_url( $file )."setCategory.php?id=".$idEntry."&bloginfo=".$bloginfo."&typeaula=".$typeA."&blogSemestre=".$blogSemestre."&nombreTheme=".$nombreTheme;	
+		$ch = curl_init(); 
+    	curl_setopt($ch, CURLOPT_URL, $url); 
+    	curl_setopt($ch, CURLOPT_HEADER, TRUE); 
+    	curl_setopt($ch, CURLOPT_NOBODY, TRUE); // remove body 
+    	curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE); 
+    	$head = curl_exec($ch); 
+    	$httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE); 
+    	curl_close($ch);
+	}
+	
 }
 
 add_action("comment_post", "kaltura_comment_post", 10, 2);
@@ -314,7 +369,7 @@ function kaltura_footer()
 		}
 	
 		function handleGotoEditorWindow (widgetId, entryId) {
-			KalturaModal.openModal("simple_editor", "' . $plugin_url . '/page_simple_editor_front_end.php?wid=" + widgetId + "&entryId=" + entryId, { width: 890, height: 546 } );
+			KalturaModal.openModal("simple_editor", "' . $plugin_url . '/page_simple_editor_front_end.php?wid=" + widgetId + "&entryId=" + entryId, { width: 890, height: 675 } );
 			jQuery("#simple_editor").addClass("modalSimpleEditor");
 		}
 		
@@ -367,8 +422,9 @@ function kaltura_add_upload_tab($content)
 function kaltura_add_upload_tab_interactive_video_only($content)
 {
 	$content = array();
-	$content["kaltura_upload"] = __("Add Interactive Video");
-	$content["kaltura_browse"] = __("Browse Interactive Videos");
+	//$content["kaltura_upload"] = __("Add Interactive Video");
+	$content["kaltura_upload"] = "";
+	//$content["kaltura_browse"] = __("Browse Interactive Videos");
 	return $content;
 }
 
@@ -394,7 +450,7 @@ function kaltura_upload_tab_content()
 {
 	unset($GLOBALS['wp_filter']['media_upload_tabs']); // remove all registerd filters for the tabs
 	add_filter("media_upload_tabs", "kaltura_add_upload_tab_interactive_video_only"); // register our filter for the tabs
-	media_upload_header(); // will add the tabs menu
+	//media_upload_header(); // will add the tabs menu
 	
 	if (!isset($_GET["kaction"]))
 		$_GET["kaction"] = "upload";
@@ -422,9 +478,23 @@ function kaltura_comment_form($post_id)
 	else
 	{
 		$plugin_url = KalturaHelpers::getPluginUrl();
-		$js_click_code = "Kaltura.openCommentCW('".$plugin_url."'); ";
-		echo "<input type=\"button\" id=\"kaltura_video_comment\" name=\"kaltura_video_comment\" tabindex=\"6\" value=\"Add Video Comment\" onclick=\"" . $js_click_code . "\" />";
+		//$js_click_code = "Kaltura.openCommentCW('".$plugin_url."'); ";
+		
+		$js_click_code = "Kaltura.openCommentCW('".$plugin_url."');if(typeof switchEditors === 'object'){switchEditors.switchto(document.getElementById('comment-html'));}";
+
+		echo "<input type=\"button\" id=\"kaltura_video_comment\" name=\"kaltura_video_comment\" tabindex=\"6\" value=\"".__('Add Video/Audio/Photo Comment')."\" onclick=\"" . $js_click_code . "\" />";
 	}
+}
+
+function get_user_role($user) {
+	$user_roles = $user->roles;
+    $user_role = array_shift($user_roles);
+    return $user_role;
+}
+
+function get_user_id($user) {
+	$user_ID = $user->ID;
+    return $user_ID;
 }
 
 function kaltura_shortcode($attrs) 
@@ -451,25 +521,78 @@ function kaltura_shortcode($attrs)
 	$divId 			= "kaltura_wrapper_" . $randId;
 	$thumbnailDivId = "kaltura_thumbnail_" . $randId;
 	$playerId 		= "kaltura_player_" . $randId;
+	
+	global $comment;
 
+	if(get_comment_meta($comment->comment_ID, 'type', true)=="" || get_comment_meta($comment->comment_ID, 'type', true)!=null){
+		$tipo = get_comment_meta($comment->comment_ID, 'type', true);
+	}else{
+		require_once("API/config.php");
+		$type = null;
+		$expiry = null;
+		$privileges = null;
+		$categoryEntry = null;
+		$pIdSem = null;
+		$pIdBlog = null;
+		$foundSem=false;
+		$foundBlog=false;
+		$foundType=false;
+		$config = new KalturaConfiguration($partnerId);
+		$config->serviceUrl = 'http://www.kaltura.com/';
+		$client = new KalturaClient($config);
+		$resultKs = $client->session->start($secret, $userId, $type, $partnerId, $expiry, $privileges);
+		$client->setKs($resultKs);
+		$results = $client->media->get($entryId,0);
+		$tipo = $results->mediaType;
+	}	
+	//video ->1
+	//img   ->2
+	//sound ->5
+
+	//$link .= '<a href="http://corp.kaltura.com/">online video platform</a>, ';
+	//$link .= '<a href="http://corp.kaltura.com/video_platform/video_streaming">video streaming</a>, ';
+	//$link .= '<a href="http://corp.kaltura.com/solutions/video_solutions">video solutions</a>';
+	
+	$KaltId = get_option('kaltura_partner_id');
+	$uiconfid = get_option('kaltura_comments_player_type');
+	
+	
+	global $current_user;
+	global $post;
+	$powerdByBox ="";
 	$link = '';
-	$link .= '<a href="http://corp.kaltura.com/">open source video</a>, ';
-	$link .= '<a href="http://corp.kaltura.com/">online video platform</a>, ';
-	$link .= '<a href="http://corp.kaltura.com/video_platform/video_streaming">video streaming</a>, ';
-	$link .= '<a href="http://corp.kaltura.com/solutions/video_solutions">video solutions</a>';
 	
-	$powerdByBox ='<div class="poweredByKaltura" style="width: ' . $embedOptions["width"] . 'px; "><div><a href="http://corp.kaltura.com/video_platform/video_player" target="_blank">Video Player</a> by <a href="http://corp.kaltura.com/" target="_blank">Kaltura</a></div></div>';
+	$comment_User_email = get_comment_author_email($comment_ID); 
+	$userEmail = get_user_by('email',$comment_User_email);
+	$userEmailID = $userEmail->ID;
 	
-	if ($isComment)
-	{
-		$thumbnailPlaceHolderUrl = KalturaHelpers::getCommentPlaceholderThumbnailUrl($wid, $entryId, 240, 180, null);
-
-		$embedOptions["flashVars"] .= "&autoPlay=true";
-		$html = '
-				<div id="' . $thumbnailDivId . '" style="width:'.$width.'px;height:'.$height.'px;" class="kalturaHand" onclick="Kaltura.activatePlayer(\''.$thumbnailDivId.'\',\''.$divId.'\');">
-					<img src="' . $thumbnailPlaceHolderUrl . '" style="" />
+	
+	if (get_user_role($current_user)!='subscriber' || get_user_id($current_user)==$post->post_author || get_user_id($current_user)==$userEmailID) {
+	$powerdByBox ='<div style="width: ' . $embedOptions["width"] . 'px;text-align:center;margin-top:10px;"><div><a href="http://cdnbakmi.kaltura.com/p/'.$KaltId.'/sp/'.$uiconfid.'/flvclipper/entry_id/'.$entryId.'/version/100000" target="_blank">Download</a></div></div>';
+	$link .= '<a href="http://cdnbakmi.kaltura.com/p/'.$KaltId.'/sp/'.$uiconfid.'/flvclipper/entry_id/'.$entryId.'/version/100000" target="_blank">Download</a>';
+	}
+	
+	if ($isComment){		
+		if($tipo==2){
+			$thumbnailPlaceHolderUrl = "http://cdn.kaltura.com/p/1/sp/1/thumbnail/entry_id/".$entryId."/width/160/height/130";
+			$html = '<div id="' . $thumbnailDivId . '" class="kalturaHand" onclick="Kaltura.activatePlayer(\''.$thumbnailDivId.'\',\''.$divId.'\');">
+				<img src="' . $thumbnailPlaceHolderUrl . '" width="160" height="130" />
+			</div>
+			<div id="' . $divId . '" style="display:none;"><img src="' . $thumbnailPlaceHolderUrl . '" /></div>
+			';
+		}else{
+			$thumbnailPlaceHolderUrl = "http://cdn.kaltura.com/p/1/sp/1/thumbnail/entry_id/".$entryId."/width/160/height/130";
+			if($tipo==5) $overlay = '';
+			else $overlay = WP_PLUGIN_URL.'/'.str_replace(basename( __FILE__),'',plugin_basename(__FILE__)).'images/generic-play-overlay.png';
+			$embedOptions["flashVars"] .= "&autoPlay=true";
+			$html = '
+				<div id="' . $thumbnailDivId . '" class="kalturaHand" onclick="Kaltura.activatePlayer(\''.$thumbnailDivId.'\',\''.$divId.'\');">
+					<img src="' . $thumbnailPlaceHolderUrl . '" width="160" height="130" />
+					<div class="kalturaHandOverlay">
+						<img src="'.$overlay.'" />
+					</div>
 				</div>
-				<div id="' . $divId . '" style="height: '.$height.'px"">'.$link.'</div>
+				<div id="' . $divId . '" style="height:'.$width.';",width:'.$height.'"></div>
 				<script type="text/javascript">
 					jQuery("#'.$divId.'").hide();
 					var kaltura_swf = new SWFObject("' . $embedOptions["swfUrl"] . '", "' . $playerId . '", "' . $width . '", "' . $height . '", "9", "#000000");
@@ -478,12 +601,12 @@ function kaltura_shortcode($attrs)
 					kaltura_swf.addParam("allowScriptAccess", "always");
 					kaltura_swf.addParam("allowFullScreen", "true");
 					kaltura_swf.addParam("allowNetworking", "all");
-					kaltura_swf.write("' . $divId . '");
-				</script>
-		';
+					kaltura_swf.write("' . $divId . '");';
+				$html .='</script>';
+				$html .='<span class="kaltura-player-wrapper">'.$link.'</span>';
+		}
 	}
-	else
-	{
+	else{
 		$style = '';
 		$style .= 'width:' . $embedOptions["width"] .'px;';
 		$style .= 'height:' . ($embedOptions["height"] + 10) . 'px;'; // + 10 is for the powered by div
@@ -494,8 +617,12 @@ function kaltura_shortcode($attrs)
 		if (@$embedOptions["style"])
 			$style .= $embedOptions["style"];
 			
-		$html = '
-				<span id="'.$divId.'" style="'.$style.'">'.$link.'</span>
+		if($tipo==2){
+			$thumbnailPlaceHolderUrl = "http://cdn.kaltura.com/p/1/sp/1/thumbnail/entry_id/".$entryId."/width/180/height/180";
+			$html = '<div style="'.$embedOptions["width"].';'.$embedOptions["height"].';" id="' . $divId . '" class="kaltura-player-wrapper"><img src="' . $thumbnailPlaceHolderUrl . '" /></div>';
+		}else{
+			$html = '
+				<span id="'.$divId.'" style="'.$style.'" class="kaltura-player-wrapper">'.$link.'</span>
 				<script type="text/javascript">
 					var kaltura_swf = new SWFObject("' . $embedOptions["swfUrl"] . '", "' . $playerId . '", "' . $embedOptions["width"] . '", "' . $embedOptions["height"] . '", "9", "#000000");
 					kaltura_swf.addParam("wmode", "opaque");
@@ -505,13 +632,13 @@ function kaltura_shortcode($attrs)
 					kaltura_swf.addParam("allowNetworking", "all");
 					kaltura_swf.write("' . $divId . '");
 				';
-		if (KalturaHelpers::compareWPVersion("2.6", ">=")) {
-			$html .= '
-					jQuery("#'.$divId.'").append("'.str_replace("\"", "\\\"", $powerdByBox).'"); 
-				';
-			//                                              ^ escape quotes for javascript ^
-		}
-		$html .= '</script>'; 
+				if (KalturaHelpers::compareWPVersion("2.6", ">=")) {
+					$html .= '
+						jQuery("#'.$divId.'").append("'.str_replace("\"", "\\\"", $powerdByBox).'"); 
+					';
+				}
+				$html .= '</script>';
+			}
 	}
 		
 	return $html;

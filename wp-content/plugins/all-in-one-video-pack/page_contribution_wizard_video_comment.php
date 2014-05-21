@@ -77,7 +77,12 @@
 </style>
 <script type="text/javascript" src="<?php echo KalturaHelpers::getPluginUrl(); ?>/js/swfobject.js"></script>
 <script type="text/javascript" src="<?php echo KalturaHelpers::getPluginUrl(); ?>/js/kaltura.js"></script>
-<script type="text/javascript" src="<?php echo KalturaHelpers::getPluginUrl(); ?>/../../../wp-includes/js/jquery/jquery.js"></script>
+
+<script type="text/javascript" src="<?php echo KalturaHelpers::getPluginUrl(); ?>/jquery-1.9.1.min.js"></script>
+<script src="http://code.jquery.com/jquery-migrate-1.2.1.js"></script>
+
+
+
 
 <?php if ($js_error != ""): ?>
 <script type="text/javascript">

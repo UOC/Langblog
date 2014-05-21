@@ -45,8 +45,7 @@ class KalturaHelpers
     
     function getPluginUrl() 
     {
-    	global $all_in_one_video_pack_file;
-    	$plugin_name = plugin_basename($all_in_one_video_pack_file);   
+    	$plugin_name = plugin_basename(__FILE__);   
     	$indx = strpos($plugin_name, "/");
     	$plugin_dir = substr($plugin_name, 0, $indx);
     	$site_url = get_settings('siteurl');
@@ -84,6 +83,7 @@ class KalturaHelpers
 		$flashVars["afterAddentry"] = "onContributionWizardAfterAddEntry";
 		$flashVars["close"] 		= "onContributionWizardClose";
 		$flashVars["termsOfUse"] 	= "http://corp.kaltura.com/static/tandc" ;
+		$flashVars["jsDelegate"] 		= "callbacksObj";
 		
 		return $flashVars;
 	}
@@ -99,6 +99,7 @@ class KalturaHelpers
 		$flashVars["ks"] 			= $ks;
 		$flashVars["backF"] 		= "onSimpleEditorBackClick";
 		$flashVars["saveF"] 		= "onSimpleEditorSaveClick";
+		$flashVars["jsDelegate"] 		= "callbacksObj";
 		
 		return $flashVars;
 	}
@@ -144,12 +145,13 @@ class KalturaHelpers
 	
 	function getContributionWizardUrl($uiConfId)
 	{
-		return KalturaHelpers::getServerUrl() . "/kse/ui_conf_id/" . $uiConfId;
+		//return KalturaHelpers::getServerUrl() . "/kse/ui_conf_id/" . $uiConfId; bug Kaltura
+		return KalturaHelpers::getServerUrl() . "/kcw/ui_conf_id/" . $uiConfId;
 	}
 	
 	function getSimpleEditorUrl($uiConfId)
 	{
-		return KalturaHelpers::getServerUrl() . "/kcw/ui_conf_id/" . $uiConfId;
+		return KalturaHelpers::getServerUrl() . "/kae/ui_conf_id/" . $uiConfId;
 	}
 
 	function userCanEdit($override = null) {

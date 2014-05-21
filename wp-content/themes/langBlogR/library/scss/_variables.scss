@@ -1,0 +1,41 @@
+/******************************************************************
+Site Name: LangBlog
+Author: Raul Fernandez
+
+Stylesheet: Variables Stylesheet
+
+******************************************************************/
+
+/*********************
+COLORS
+*********************/
+
+$alert-yellow:      #ebe16f;
+$alert-red:         #fbe3e4;
+$alert-green:       #e6efc2;
+$alert-blue:        #d5edf8;
+
+$black:             #000;
+$dark:              #333;
+$white:             #fff;
+$dark-blue: 		#00678C;
+$soft-blue: 		#EDF5F8;
+$red: 				#B22D00;
+$orange: 			#D96D00;
+$soft-orange: 		#FF9326;
+
+$brand-color:       #6699CC;
+$brand-soft:        lighten($brand-color, 5%);
+
+$link-color:        #CC9900;
+$link-hover:        darken($link-color, 5%);
+
+
+/*********************
+TYPOGRAPHY
+*********************/
+
+$head-font:     	Verdana, Arial, Helvetica, sans-serif;
+$althead-font:      "Helvetica Neue", Helvetica, sans-serif;
+$sub-font:          Tahoma, Arial, sans-serif;
+$body-font:         Verdana, Arial, sans-serif;

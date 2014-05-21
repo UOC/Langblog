@@ -1,0 +1,23 @@
+/******************************************************************
+Site Name: LangBlog
+Author: Raul Fernandez
+
+Stylesheet: Retina Screens & Devices Stylesheet
+
+When handling retina screens you need to make adjustments, especially
+if you're not using font icons. Here you can add them in one neat
+place.
+
+******************************************************************/
+
+i.icon,
+.link-comments:before,
+.link-categories:before,
+.post-edit-link:before,
+.link-subscription:before,
+.comment-reply-link:before,
+.search-form .search-icon{
+	background-image: url('../images/iconset_@2X.png');
+	background-size:182px 52px;
+}
+

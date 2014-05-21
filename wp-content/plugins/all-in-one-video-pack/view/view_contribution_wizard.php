@@ -1,6 +1,17 @@
 <?php
+
 	$flashVarsStr = KalturaHelpers::flashVarsToString($viewData["flashVars"]);
+	$flashVarsStr .= "&showCloseButton=true&showcategories=false&showtags=false&showdescription=false";	
+	
+	if(function_exists('load_plugin_textdomain')) {
+		load_plugin_textdomain('all-in-one-video-pack',PLUGINDIR.'/all-in-one-video-pack');
+	}
 ?>
+
+
+<!--div id="alertKaltura" style="color: rgb(194, 9, 9);background-color: rgb(192, 192, 192);text-align: center;margin-top: -12px;height: 16px;font-family: Verdana;font-size: 12px;">
+		<p><?php echo __("textAlertRecord","all-in-one-video-pack");?></p>
+</div-->
 
 <div id="kaltura_contribution_wizard_wrapper"></div>
 

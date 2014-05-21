@@ -111,6 +111,21 @@
 	});
 	
 	topWindow.Kaltura.hackModalBoxWp26();
+	
+	// ***************** afegit Marc Gener 11/04/2011 ******************** 	
+var callbacksObj = {
+  publishHandler:afterPublishHandler,
+  closeHandler:closeEditorHandler
+};
+
+function afterPublishHandler(obj) {
+}
+
+function closeEditorHandler(obj) {
+   onSimpleEditorBackClick();
+}
+// ***************** afegit Marc Gener 11/04/2011 ******************** 	 
+
 </script>
 
 </head>

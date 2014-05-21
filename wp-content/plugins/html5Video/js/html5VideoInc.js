@@ -57,8 +57,9 @@ function video_converting(idDiv,idVideo,typeFlavor1,typeFlavor2,partnerId,w,h){
 	    });
 	}
 	if(flavorVid1 !=0 && flavorVid2!=0) setVideoHtml5(idDiv,idVideo,flavorVid1,flavorVid2,partnerId,w,h);
-	else setTimeout(video_converting,1000,idDiv,idVideo,typeFlavor1,typeFlavor2,partnerId,w,h);
+	else setTimeout(video_converting,5000,idDiv,idVideo,typeFlavor1,typeFlavor2,partnerId,w,h);
 }
+
 
 function setVideoHtml5(idDiv,idVideoOnKaltura,idFlavor4mp4,idFlavor4webm,partnerId,w,h){
 	var allowFlash = swfobject.hasFlashPlayerVersion("1");

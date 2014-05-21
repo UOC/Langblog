@@ -1,0 +1,20 @@
+/******************************************************************
+Site Name: LangBlog
+Author: Raul Fernandez
+
+Stylesheet: Desktop Stylsheet
+
+This is the desktop size. It's larger than an iPad so it will only
+be seen on the Desktop. 
+
+******************************************************************/
+
+.wrap {
+	width: 980px;
+	max-width:980px;
+}
+
+
+#main .wrap{
+	width:100%;
+}

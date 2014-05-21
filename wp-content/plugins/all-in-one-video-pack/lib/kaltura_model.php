@@ -227,12 +227,7 @@ class KalturaModel
 	
 	function registerPartner($partner)
 	{
-		$this->client->config->partnerId = null;
-		$oldTimeout = $this->client->config->curlTimeout;
-		$this->client->config->curlTimeout = 30;
-		$result = $this->client->partner->register($partner);
-		$this->client->config->curlTimeout = $oldTimeout;
-		return $result;
+	    return $this->client->partner->register($partner);
 	}
 	
 	function listUserEntries($userId, $pageSize, $page)
@@ -279,12 +274,6 @@ class KalturaModel
 		$filter->orderBy = KalturaUiConfOrderBy_CREATED_AT_DESC;
 		$uiConfs = $this->client->uiConf->listAction($filter);
 		
-		if (!is_null($this->client->error))
-		{
-			$uiConfs = new stdClass();
-			$uiConfs->objects = array();
-		}
-			
 		// add the default players
 		global $KALTURA_DEFAULT_PLAYERS;
 		$uiConfs->objects = array_reverse($uiConfs->objects); // default players should be first

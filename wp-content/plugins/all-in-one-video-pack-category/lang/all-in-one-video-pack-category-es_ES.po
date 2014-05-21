@@ -1,0 +1,117 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: all-in-one-video-pack-category\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2013-06-25 11:35+0100\n"
+"Last-Translator: Antoni Bertran <abertranb@uoc.edu>\n"
+"Language-Team: Development <abertranb@uoc.edu>\n"
+"Language: English\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.5\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop\n"
+"X-Poedit-Basepath: /Users/antonibertranbellido/uoc/Deakin/workspace/"
+"wordpress/wp-content/plugins/all-in-one-video-pack-category/admin\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+
+msgid "All in One Video Tree Categories"
+msgstr "All in One Video Tree Categories"
+
+msgid "No value"
+msgstr "Sin valor"
+
+msgid "Post Name"
+msgstr "Nombre del Post"
+
+msgid "Post Id"
+msgstr "Id del Post"
+
+msgid "Blog Name"
+msgstr "Nombre del Blog"
+
+msgid "Blog Id"
+msgstr "Id Blog"
+
+msgid "Blog Id + Blog Name"
+msgstr "Id Blog + Nombre del Blog"
+
+msgid "Theme Name"
+msgstr "Nombre del tema"
+
+msgid "Year"
+msgstr "Año"
+
+msgid "Month"
+msgstr "Mes"
+
+msgid "Author"
+msgstr "Autor"
+
+msgid "Custom Value"
+msgstr "Valor definido"
+
+msgid "You do not have sufficient permissions to manage options for this site."
+msgstr ""
+"No tienes permisos suficientes per gestionar les opciones per este sitio."
+
+msgid "Delete Category"
+msgstr "Borrar Categoría"
+
+msgid "You have to configure All In one video pack"
+msgstr "Primero de todo configura All In one video pack"
+
+msgid "All in one category configuration"
+msgstr "Configuración all in one category"
+
+msgid "Overview"
+msgstr "Resumen"
+
+msgid "Select the categories tree to upload a video."
+msgstr "Seleccionar el árbol de categorías para subir el vídeo."
+
+msgid ""
+"This screen allows you to choose your category tree structure into Kaltura."
+msgstr "Esta pantalla permite escoger el árbol de categorías para Kaltura."
+
+msgid ""
+"You must click the Save Changes button at the bottom of the screen for new "
+"settings to take effect."
+msgstr "Has de clocar en Salvar los cambiosal final de la página."
+
+msgid "Are you sure you want delete this row?"
+msgstr "¿Estás seguro que quieres eliminar esta fila?"
+
+msgid "Category tree updated."
+msgstr "Árbol de categorías actualizado."
+
+msgid "Defult multisite category tree updated."
+msgstr "Árbol de categorías por defecto actualizado."
+
+msgid ""
+"You can configure the tree of categories will be created with each post and "
+"comment."
+msgstr ""
+"Puedes configurar el árbol de categorías que se creará con cada post y con "
+"los comentarios."
+
+msgid "Common Settings"
+msgstr "Configuración General"
+
+msgid "Category Name"
+msgstr "Nombre de Categoría"
+
+msgid "Value"
+msgstr "Valor"
+
+msgid "Delete"
+msgstr "Borrar"
+
+msgid "Root Category"
+msgstr "Categoría Principal"
+
+msgid "Category"
+msgstr "Categoría"
+
+msgid "Add Category"
+msgstr "Añadir Categoría"

@@ -1,5 +1,10 @@
 <?php if (!defined("WP_ADMIN")) die();?>
 <?php if ($viewData["uiConfId"]): ?>
+
+<link rel="stylesheet" href="http://cv-test.uoc.edu/app/blogaula131/wp-admin/load-styles.php?c=1&amp;dir=ltr&amp;load=media,dashicons,wp-admin,buttons&amp;ver=3.8.1" type="text/css" media="all">
+
+
+
 <script type="text/javascript">
 	var playerWidth = "<?php echo $viewData["playerWidth"]; ?>";
 	var playerHeight = "<?php echo $viewData["playerHeight"]; ?>";
@@ -235,7 +240,7 @@
 
 	function fixHeight() {
 		var topWindow = Kaltura.getTopWindow();
-		topWindow.Kaltura.animateModalSize(680,jQuery("#sendToEditor").height() + 70);
+		topWindow.Kaltura.animateModalSize(880,jQuery("#sendToEditor").height() + 70);
 	}
 
 	fixHeight();

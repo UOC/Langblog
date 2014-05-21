@@ -56,22 +56,34 @@ function sendIdVideo($matches){
 }
 
 function getFlavor($idVideo,$typeFlavor) {
-  $file = "html5Video/API/getFlavor.php";
-  $ch = curl_init();
-  curl_setopt($ch, CURLOPT_URL, plugin_dir_url( $file )."getFlavor.php?idVideo=".$idVideo."&typeFlavor=".$typeFlavor);
-  curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-  $data = curl_exec($ch);
-  curl_close($ch);
-  return $data;
+  global $post;
+  if(get_post_meta($post->ID, 'idFlavorOnKaltura-'.$typeFlavor, true) == null){
+    $file = "html5Video/API/getFlavor.php";
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, plugin_dir_url( $file )."getFlavor.php?idVideo=".$idVideo."&typeFlavor=".$typeFlavor);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    $data = curl_exec($ch);
+    curl_close($ch);
+    add_post_meta($post->ID, 'idFlavorOnKaltura-'.$typeFlavor, $data);
+  }else{
+    $data = get_post_meta($post->ID, 'idFlavorOnKaltura-'.$typeFlavor, true);
+  }
+    return $data;
 }
 
 function getIdExists($idVideo) {
-  $file = "html5Video/API/getIdExists.php";
-  $ch = curl_init();
-  curl_setopt($ch, CURLOPT_URL, plugin_dir_url( $file )."getIdExists.php?idVideo=".$idVideo);
-  curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-  $data = curl_exec($ch);
-  curl_close($ch);
+  global $post;
+  if(get_post_meta($post->ID, 'idVideoOnKaltura', true) == null){
+    $file = "html5Video/API/getIdExists.php";
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, plugin_dir_url( $file )."getIdExists.php?idVideo=".$idVideo);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    $data = curl_exec($ch);
+    curl_close($ch);
+    add_post_meta($post->ID, 'idVideoOnKaltura', $data);
+  }else{
+    $data = get_post_meta($post->ID, 'idVideoOnKaltura', true);
+  }
   return $data;
 }
 ?>

@@ -1,0 +1,244 @@
+# Translation of the WordPress theme LangBlogR 1.0 (Catala)
+# This file is distributed under the same license as the LangBlogR Theme package.
+msgid ""
+msgstr ""
+"Project-Id-Version: LangBlogR\n"
+"POT-Creation-Date: 2014-05-19 19:56+0100\n"
+"PO-Revision-Date: 2014-05-19 21:22+0100\n"
+"Last-Translator: hh <hh>\n"
+"Language-Team: tambaqui\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.3\n"
+"X-Poedit-KeywordsList: __;_e;esc_attr\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+#: ../404.php:7
+msgid "Error 404: Page not found!"
+msgstr "Error 404: Pàgina no trobada!"
+
+#: ../404.php:11 ../archive.php:56 ../attachment.php:68 ../index.php:56
+#: ../page.php:36
+msgid "Sorry, you are looking for something that isn't here!"
+msgstr "Ho sentim, però estàs buscant una cosa que no és aquí!"
+
+#: ../archive.php:12 ../attachment.php:15 ../index.php:12 ../page.php:12
+#: ../search.php:14 ../single.php:53
+msgid "By"
+msgstr "Per"
+
+#: ../archive.php:12 ../attachment.php:15 ../index.php:12 ../page.php:12
+#: ../search.php:14 ../single.php:53
+msgid "on"
+msgstr "a"
+
+#: ../archive.php:25 ../attachment.php:32 ../single.php:69
+msgid "You can post a contribution"
+msgstr "Pots enviar una contribució"
+
+#: ../archive.php:25
+msgid "You can post a contribution (1)"
+msgstr "Pots enviar una contribució (1)"
+
+#: ../archive.php:25
+msgid "You can post a contribution (%)"
+msgstr "Pots enviar una contribució (%)"
+
+#: ../archive.php:27
+msgid "Edit this contribution"
+msgstr "Edita aquesta contribució"
+
+#: ../archive.php:40 ../attachment.php:52 ../index.php:40 ../search.php:42
+#: ../single.php:90
+msgid "&laquo; Older Entries"
+msgstr "&laquo; Entrades antigues"
+
+#: ../archive.php:41 ../attachment.php:53 ../index.php:41 ../search.php:43
+#: ../single.php:91
+msgid "Newer Entries &raquo;"
+msgstr "Entrades recents &raquo;"
+
+#: ../archive.php:52 ../attachment.php:64 ../index.php:52 ../page.php:32
+#: ../single.php:102
+msgid "No results found!"
+msgstr "Cap resultat trobat!"
+
+#: ../comments.php:12
+msgid "This post is password protected. Enter the password to view comments."
+msgstr "This post is password protected. Enter the password to view comments."
+
+#: ../comments.php:46
+#, php-format
+msgid "You must be %1$slogged in%2$s to post a comment."
+msgstr "Heu d'estar %1$sconnectat%2$s per a fer un comentari."
+
+#: ../comments.php:52
+msgid "Post a contribution"
+msgstr "Envia una contribució"
+
+#: ../comments.php:60
+msgid "Logged in as"
+msgstr "Connectat com"
+
+#: ../comments.php:60
+msgid "Log out of this account"
+msgstr "Desconnectar d'aquest compte"
+
+#: ../comments.php:60
+msgid "Log out"
+msgstr "Desconnectar"
+
+#: ../comments.php:60
+msgid "&raquo;"
+msgstr "&raquo;"
+
+#: ../comments.php:67
+msgid "Name"
+msgstr "Nom"
+
+#: ../comments.php:67 ../comments.php:72
+msgid "(required)"
+msgstr "(requerit)"
+
+#: ../comments.php:68
+msgid "Your Name*"
+msgstr "El teu nom*"
+
+#: ../comments.php:72
+msgid "Mail"
+msgstr "Correu electrònic"
+
+#: ../comments.php:73
+msgid "Your E-Mail*"
+msgstr "El teu correu electrònic"
+
+#: ../comments.php:74
+msgid "(will not be published)"
+msgstr "(no es publicarà)"
+
+#: ../comments.php:78
+msgid "Website"
+msgstr "Lloc web"
+
+#: ../comments.php:79
+msgid "Got a website?"
+msgstr "Teniu un lloc web?"
+
+#: ../comments.php:86
+msgid "Your Comment here..."
+msgstr "Comenteu-ho aquí..."
+
+#: ../comments.php:90
+msgid "Send"
+msgstr "Enviar"
+
+#: ../comments.php:105
+msgid "Comments are closed."
+msgstr "Els comentaris estan tancats."
+
+#: ../functions.php:58 ../header.php:55
+msgid "Home"
+msgstr "Inici"
+
+#: ../functions.php:81
+msgid "Blog Archives"
+msgstr "Arxiu"
+
+#: ../functions.php:106
+#, php-format
+msgid "<cite class=\"fn\">%s</cite>"
+msgstr "<cite class=\"fn\">%s</cite>"
+
+#: ../functions.php:110
+msgid "n/j/Y - g:i a"
+msgstr "n/j/Y - g:i a"
+
+#: ../functions.php:116
+msgid "Your comment is awaiting moderation."
+msgstr "El vostre comentari està pendent de moderació."
+
+#: ../functions.php:121
+msgid "(Edit)"
+msgstr "(Modifiqueu)"
+
+#: ../index.php:25 ../search.php:27
+msgid "posted at"
+msgstr "publicat a"
+
+#: ../index.php:27 ../search.php:29
+msgid "Contributions"
+msgstr "Contribucions"
+
+#: ../index.php:27 ../search.php:29
+msgid "1 contribution"
+msgstr "1 contribució"
+
+#: ../index.php:27 ../search.php:29
+#, php-format
+msgid "% contributions"
+msgstr "% contribucions"
+
+#: ../index.php:27 ../search.php:29
+msgid "No contributions"
+msgstr "Cap contribució"
+
+#: ../search.php:5
+msgid "Search results"
+msgstr "Resultats de la cerca"
+
+#: ../search.php:54
+msgid "No contribution found! Try another search."
+msgstr "Cap contribució trobat! Realitza una nova cerca."
+
+#: ../searchform.php:2 ../sidebar.php:62
+msgid "Search for:"
+msgstr "Cercar:"
+
+#: ../searchform.php:3 ../sidebar.php:63
+msgid "search ..."
+msgstr "cercar ..."
+
+#: ../searchform.php:4 ../sidebar.php:65
+msgid "Search"
+msgstr "Buscar"
+
+#: ../sidebar.php:22
+msgid "Menu"
+msgstr "Menu"
+
+#: ../sidebar.php:33
+msgid "ACTIVITIES"
+msgstr "ACTIVITATS"
+
+#: ../sidebar.php:40
+msgid "HELP"
+msgstr "AJUDA"
+
+#: ../sidebar.php:49
+msgid "ADMINISTRATION"
+msgstr "ADMINISTRACIÓ"
+
+#: ../sidebar.php:52
+msgid "LANGblog support"
+msgstr "LANGblog support"
+
+#: ../single.php:106
+msgid "Sorry, no contribution with this criteria!"
+msgstr "Ho sentim, cap contribució amb aquests criteris"
+
+#: ../library/bones.php:110
+#, php-format
+msgid "Page %s"
+msgstr "Pàgina %s"
+
+#: ../library/bones.php:289
+msgid "Read "
+msgstr "Llegir"
+
+#: ../library/bones.php:289
+msgid "Read more &raquo;"
+msgstr "Llegir més &raquo;"

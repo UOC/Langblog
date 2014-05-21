@@ -1,0 +1,21 @@
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: EditNAMESblog_catala\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2007-03-03 02:56-0800\n"
+"PO-Revision-Date: 2013-06-17 13:36+0100\n"
+"Last-Translator: David Garcia Falcó <dgfalco@gmail.com>\n"
+"Language-Team: UOC Podcasting <cmoyas@uoc.edu>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.5\n"
+
+#: EditNAMESblog.php:35
+msgid "textAlertRecord"
+msgstr ""
+"Mentre un video es carrega, pots seguir veient-ne o gravant-ne d'altres."

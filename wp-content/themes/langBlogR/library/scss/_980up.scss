@@ -1,0 +1,36 @@
+/******************************************************************
+Site Name: LangBlog
+Author: Raul Fernandez
+
+Stylesheet: Desktop Small Stylsheet
+
+
+******************************************************************/
+
+.wrap {
+	width: 940px;
+	max-width:940px;
+}
+
+
+#main .wrap{
+	width:100%;
+}
+
+#main{
+	padding-left:3em;
+}
+
+
+/* Comments */
+
+#cancel-comment-reply {
+	position:absolute;
+	top:15px;
+	right:0;
+}
+
+#comment-form-title {
+	margin: 0 0 1.1em;
+}
+

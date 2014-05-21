@@ -1,0 +1,107 @@
+"Project-Id-Version: all-in-one-video-pack-category\n"
+"POT-Creation-Date: 2013-06-25 10:35+0100\n"
+"PO-Revision-Date: 2013-06-25 10:40+0100\n"
+"Last-Translator: Antoni Bertran <abertranb@uoc.edu>\n"
+"Language-Team: Development <abertranb@uoc.edu>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.5\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop\n"
+"X-Poedit-Basepath: /Users/antonibertranbellido/uoc/Deakin/workspace/"
+"wordpress/wp-content/plugins/all-in-one-video-pack-category\n"
+"Language: English\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+
+msgid "All in One Video Tree Categories"
+msgstr "All in One Video Tree Categories"
+
+msgid "No value"
+msgstr "No value"
+
+msgid "Post Name"
+msgstr "Post Name"
+
+msgid "Post Id"
+msgstr "Post Id"
+
+msgid "Blog Name"
+msgstr "Blog Name"
+
+msgid "Blog Id"
+msgstr "Blog Id"
+
+msgid "Blog Id + Blog Name"
+msgstr "Blog Id + Blog Name"
+
+msgid "Theme Name"
+msgstr "Theme Name"
+
+msgid "Year"
+msgstr "Year"
+
+msgid "Month"
+msgstr "Month"
+
+msgid "Author"
+msgstr "Author"
+
+msgid "Custom Value"
+msgstr "Custom Value"
+
+msgid "You do not have sufficient permissions to manage options for this site."
+msgstr "You do not have sufficient permissions to manage options for this site."
+
+msgid "Delete Category"
+msgstr "Delete Category"
+
+msgid "You have to configure All In one video pack"
+msgstr "You have to configure All In one video pack first"
+
+msgid "All in one category configuration"
+msgstr "All in one category configuration"
+
+msgid "Overview"
+msgstr "Overview"
+
+msgid "Select the categories tree to upload a video."
+msgstr "Select the categories tree to upload a video."
+
+msgid "This screen allows you to choose your category tree structure into Kaltura."
+msgstr "This screen allows you to choose your category tree structure into Kaltura."
+
+msgid "You must click the Save Changes button at the bottom of the screen for new settings to take effect."
+msgstr "You must click the Save Changes button at the bottom of the screen for new settings to take effect."
+
+msgid "Are you sure you want delete this row?"
+msgstr "Are you sure you want delete this row?"
+
+msgid "Category tree updated."
+msgstr "Category tree updated."
+
+msgid "Defult multisite category tree updated."
+msgstr "Defult multisite category tree updated."
+
+msgid "You can configure the tree of categories will be created with each post and comment."
+msgstr "You can configure the tree of categories will be created with each post and comment."
+
+msgid "Common Settings"
+msgstr "Common Settings"
+
+msgid "Category Name"
+msgstr "Category Name"
+
+msgid "Value"
+msgstr "Value"
+
+msgid "Delete"
+msgstr "Delete"
+
+msgid "Root Category"
+msgstr "Root Category"
+
+msgid "Category"
+msgstr "Category"
+
+msgid "Add Category"
+msgstr "Add Category"

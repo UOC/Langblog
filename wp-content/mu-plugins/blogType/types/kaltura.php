@@ -24,12 +24,12 @@ class kaltura extends defaultType implements blogType {
 	}
 	public function changeTheme() {
 		
-		switch_theme("langBlog2", "langBlog2"); //change theme
+		switch_theme("langBlogR", "langBlogR"); //change theme
                    
 	}
 	
 	public function loadPlugins() {$options = get_option('flv_options');
-		$plugins = $this->removeActivedPlugins(array('menu_ajuda/menu_ajuda.php','menu_tauler/menu_tauler.php','members-only/members-only.php','wordpress-thread-comment/wp-thread-comment.php','all-in-one-video-pack/all_in_one_video_pack.php','EditPARAMSblog/EditPARAMSblog.php', 'stepsLB/LBsteps.php'));
+		$plugins = $this->removeActivedPlugins(array('members-only/members-only.php','html5Video/html5Video.php','all-in-one-video-pack/all_in_one_video_pack.php','EditPARAMSblog/EditPARAMSblog.php', 'stepsLB/LBsteps.php'));
     	activate_plugins($plugins,'');
 	}
 	

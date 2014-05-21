@@ -5,7 +5,7 @@
 <div id="kaltura_simple_editor_wrapper"></div>
 <script type="text/javascript">
 	var seWidth = 890;
-	var seHeight = 546;
+	var seHeight = 675;
 	
 	var topWindow = Kaltura.getTopWindow();
 	
