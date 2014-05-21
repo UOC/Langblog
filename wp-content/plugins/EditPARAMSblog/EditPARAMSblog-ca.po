@@ -1,0 +1,81 @@
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: EditNAMESblog_catala\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2007-03-03 02:56-0800\n"
+"PO-Revision-Date: 2013-02-25 16:47+0100\n"
+"Last-Translator: \n"
+"Language-Team: UOC Podcasting <cmoyas@uoc.edu>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Calata\n"
+
+#: EditNAMESblog.php:35
+msgid "Choose Language"
+msgstr "Triar idioma"
+
+#: EditNAMESblog.php:36
+msgid "Your changes has been saved."
+msgstr "Els canvis s'han guardat."
+
+#: EditNAMESblog.php:37
+msgid "Refresh page to see changes."
+msgstr "Refrescar la pàgina per veure els canvis."
+
+#: EditNAMESblog.php:38
+msgid "Edit"
+msgstr "Editar"
+
+#: EditNAMESblog.phpp:39
+msgid "Cancel"
+msgstr "Cancel·lar"
+
+#: EditNAMESblog.php:40
+msgid "Blog's name."
+msgstr "Nom del Blog."
+
+#: EditNAMESblog.php:41
+msgid "Ex: 012_NameOfBlog"
+msgstr "Ex: 012_NomDelBlog"
+
+#: EditNAMESblog.php:42
+msgid "Blog's description."
+msgstr "Descripció del blog."
+
+#: EditNAMESblog.php:43
+msgid " Save "
+msgstr " Salvar "
+
+#: EditNAMESblog.php:44
+msgid "Actual Language: "
+msgstr "Idioma actual: "
+
+#: EditNAMESblog.php:45
+msgid "Change Language: "
+msgstr "Cambiar d'idioma: "
+
+#: EditNAMESblog.php:46
+msgid " Edit "
+msgstr " Editar "
+
+#: EditNAMESblog.php:46
+msgid "Front page displays"
+msgstr "La pàgina principal mostrarà"
+
+#: EditNAMESblog.php:46
+msgid "Your latest posts"
+msgstr "Els últims posts"
+
+#: EditNAMESblog.php:46
+msgid "Static page"
+msgstr "Una pàgina fixa"
+
+#: EditNAMESblog.php:46
+msgid "Front page:"
+msgstr "Pàgina que es mostrarà:"
+
