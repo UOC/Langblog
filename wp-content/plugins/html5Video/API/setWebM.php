@@ -13,6 +13,7 @@ $privileges = null;
 $result = $client->session->start($secret, $userId, $type, $partnerId, $expiry, $privileges);
 $client->setKs($result);
 $entryId = $_GET["idVideo"];
+$flavorParamsId = $_GET["typeFlavor"];
 $priority = null;
 $result = $client->flavorAsset->convert($entryId, $flavorParamsId, $priority);
 
