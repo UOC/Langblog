@@ -2,7 +2,8 @@
 function convertToWebM($idVideo){
   $file = "html5Video/API/setWebM.php";
   $ch = curl_init();
-  curl_setopt($ch, CURLOPT_URL, plugin_dir_url( $file )."setWebM.php?idVideo=".$idVideo."&typeFlavor=webm");
+//typeFlavor = code given from kaltura for WEBM flavor
+  curl_setopt($ch, CURLOPT_URL, plugin_dir_url( $file )."setWebM.php?idVideo=".$idVideo."&typeFlavor=652501");
   curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
   $data = curl_exec($ch);
   curl_close($ch);

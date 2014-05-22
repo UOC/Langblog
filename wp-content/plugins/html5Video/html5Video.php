@@ -97,10 +97,10 @@ function getFlavorIntro($idVideo,$typeFlavor) {
 function sendIdVideoIntro($matches){
     $cont = explode('"', $matches[2]);
     if(getFlavorIntro($cont[2],"webm")==""){
-    	 //error_log("Envia a Convertir: ".getFlavorIntro($cont[2],"webm"));
 		$file = "html5Video/API/setWebM.php";
 	  	$ch = curl_init();
-	  	curl_setopt($ch, CURLOPT_URL, plugin_dir_url( $file )."setWebM.php?idVideo=".$cont[2]."&typeFlavor=webm");
+	  	//typeFlavor = code given from kaltura for WEBM flavor
+	  	curl_setopt($ch, CURLOPT_URL, plugin_dir_url( $file )."setWebM.php?idVideo=".$cont[2]."&typeFlavor=652501");
 	  	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 	  	$data = curl_exec($ch);
 	  	curl_close($ch);
