@@ -1,13 +1,13 @@
 <?php
 function convertToWebM($idVideo){
-  $file = "html5Video/API/setWebM.php";
-  $ch = curl_init();
-//typeFlavor = code given from kaltura for WEBM flavor
-  curl_setopt($ch, CURLOPT_URL, plugin_dir_url( $file )."setWebM.php?idVideo=".$idVideo."&typeFlavor=652501");
-  curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-  $data = curl_exec($ch);
-  curl_close($ch);
+      $file = "html5Video/API/setWebM.php";
+      $ch = curl_init();
+      curl_setopt($ch, CURLOPT_URL, plugin_dir_url( $file )."setWebM.php?idVideo=".$idVideo."&typeFlavor=652501");
+      curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+      $data = curl_exec($ch);
+      curl_close($ch);
 }
+
 
 function kaltura_parser($content){
     return preg_replace_callback('/\[kaltura-widget uiconfid="(([^]]+))]/i', sendIdVideo ,$content);
@@ -16,16 +16,14 @@ function kaltura_parser($content){
 function sendIdVideo($matches){
 	require("API/config.php"); // Sets global var $partnerId 
     $cont = explode('"', $matches[2]);
-    $idVideoOnKaltura = getIdExists($cont[2]);
-    $idFlavor4webm = getFlavor($idVideoOnKaltura,"webm");
+    $idVideoOnKaltura = getIdExists($cont[2],"");
+    $idFlavor4webm = getFlavor($idVideoOnKaltura,"webm","");
     $urlFlavor4webm = 'http://cdnbakmi.kaltura.com/p/'.$partnerId.'/sp/'.$partnerId.'00/serveFlavor/entryId/'.$idVideoOnKaltura.'/flavorId/'.$idFlavor4webm.'/name/a.webm';
-    $idFlavor4mp4 = getFlavor($idVideoOnKaltura,"mp4");
-    $urlFlavor4mp4 = 'http://cdnbakmi.kaltura.com/p/'.$partnerId.'/sp/'.$partnerId.'00/serveFlavor/entryId/'.$idVideoOnKaltura.'/flavorId/'.$idFlavor4mp4.'/name/a.mp4';
-
+    $idFlavor4mp4 = getFlavor($idVideoOnKaltura,"mp4","");
+    $urlFlavor4mp4 = 'http://cdnbakmi.kaltura.com/p/'.$partnerId.'/sp/'.$partnerId.'00/serveFlavor/entryId/'.$idVideoOnKaltura.'/flavorId/'.$idFlavor4mp4.'/name/a.mp4';    
     if($idVideoOnKaltura && $idFlavor4webm=='') {
-    	convertToWebM($cont[2]);
+      convertToWebM($cont[2]);
 	}
-
     echo '
     	<div id="mainDivHtml5'.$GLOBALS["i"].'" style="margin-top:10px; width:100%;"></div>
     	<script type="text/javascript">
@@ -56,35 +54,52 @@ function sendIdVideo($matches){
 	}
 }
 
-function getFlavor($idVideo,$typeFlavor) {
-  global $post;
-  if(get_post_meta($post->ID, 'idFlavorOnKaltura-'.$typeFlavor, true) == null){
-    $file = "html5Video/API/getFlavor.php";
-    $ch = curl_init();
-    curl_setopt($ch, CURLOPT_URL, plugin_dir_url( $file )."getFlavor.php?idVideo=".$idVideo."&typeFlavor=".$typeFlavor);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-    $data = curl_exec($ch);
-    curl_close($ch);
-    add_post_meta($post->ID, 'idFlavorOnKaltura-'.$typeFlavor, $data);
-  }else{
-    $data = get_post_meta($post->ID, 'idFlavorOnKaltura-'.$typeFlavor, true);
-  }
+function getFlavor($idVideo,$typeFlavor,$idComment) {
+   if($idComment==""){
+          $file = "html5Video/API/getFlavor.php";
+          $ch = curl_init();
+          curl_setopt($ch, CURLOPT_URL, plugin_dir_url( $file )."getFlavor.php?idVideo=".$idVideo."&typeFlavor=".$typeFlavor);
+          curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+          $data = curl_exec($ch);
+          curl_close($ch);
+   }else{
+       if(get_comment_meta($idComment,"_getFlavor".$idVideo.$typeFlavor,true)!=null){
+            $data = get_comment_meta($idComment,"_getFlavor".$idVideo.$typeFlavor,true); 
+        }else{
+            $file = "html5Video/API/getFlavor.php";
+            $ch = curl_init();
+            curl_setopt($ch, CURLOPT_URL, plugin_dir_url( $file )."getFlavor.php?idVideo=".$idVideo."&typeFlavor=".$typeFlavor);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+            $data = curl_exec($ch);
+            curl_close($ch);
+            add_comment_meta($idComment,"_getFlavor".$idVideo.$typeFlavor,$data);
+        }
+    }
     return $data;
 }
 
-function getIdExists($idVideo) {
-  global $post;
-  if(get_post_meta($post->ID, 'idVideoOnKaltura', true) == null){
-    $file = "html5Video/API/getIdExists.php";
-    $ch = curl_init();
-    curl_setopt($ch, CURLOPT_URL, plugin_dir_url( $file )."getIdExists.php?idVideo=".$idVideo);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-    $data = curl_exec($ch);
-    curl_close($ch);
-    add_post_meta($post->ID, 'idVideoOnKaltura', $data);
-  }else{
-    $data = get_post_meta($post->ID, 'idVideoOnKaltura', true);
-  }
-  return $data;
+
+function getIdExists($idVideo,$idComment) {
+   if($idComment==""){
+        $file = "html5Video/API/getIdExists.php";
+            $ch = curl_init();
+            curl_setopt($ch, CURLOPT_URL, plugin_dir_url( $file )."getIdExists.php?idVideo=".$idVideo);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+            $data = curl_exec($ch);
+            curl_close($ch);
+    }else{
+       if(get_comment_meta($idComment,"_getIdExists".$idVideo,true)!=null){
+             $data = get_comment_meta($idComment,"_getIdExists".$idVideo,true); 
+        }else{
+            $file = "html5Video/API/getIdExists.php";
+            $ch = curl_init();
+            curl_setopt($ch, CURLOPT_URL, plugin_dir_url( $file )."getIdExists.php?idVideo=".$idVideo);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+            $data = curl_exec($ch);
+            curl_close($ch);
+            add_comment_meta($idComment,"_getIdExists".$idVideo,$data);
+        }
+    }
+    return $data;
 }
 ?>

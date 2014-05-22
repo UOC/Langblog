@@ -109,7 +109,7 @@ function kaltura_html5_comment_form($post_id)
 		var postId = jQuery("[name=comment_post_ID]").val();
 		var author = jQuery("#author").val();
 		var email  = jQuery("#email").val();
-		KalturaModal.openModal("contribution_wizard", pluginUrl + "/page_contribution_wizard_video_comment.php?postid="+postId+"&author="+author+"&email="+email, { width: 680, height: 360 } );
+		KalturaModal.openModal("contribution_wizard", pluginUrl + "/page_contribution_wizard_video_comment.php?postid="+postId+"&author="+author+"&email="+email, { width: 340, height: 360 } );
 		jQuery("#contribution_wizard").addClass("modalContributionWizard");
 		}</script>';
             echo '<button class="btn" id="kaltura_video_comment_html5"  onclick="' . $js_click_code . '">Upload Video File</button>';

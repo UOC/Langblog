@@ -10,7 +10,11 @@ class KalturaHTML5Helpers
 	 */
 	public static function all_in_one_is_2_5_or_newer(){
 		if (self::$is_all_in_one_is_2_5_or_newer == null){
-			$plugin_data = get_plugin_data( dirname(__FILE__).'/../../all-in-one-video-pack/all_in_one_video_pack.php', false, false);
+			$file = dirname(__FILE__).'/../../all-in-one-video-pack/all_in_one_video_pack.php';
+			if (!file_exists($file)) {
+				$file = dirname(__FILE__).'/../../all-in-one-video-pack_/all_in_one_video_pack.php';
+			}
+			$plugin_data = get_plugin_data( $file, false, false);
 			$versions = array('2.4.9', $plugin_data['Version']);
 			usort($versions, 'version_compare');
 			self::$is_all_in_one_is_2_5_or_newer = $versions[0]!=$plugin_data['Version'];

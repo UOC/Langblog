@@ -16,5 +16,4 @@ $entryId = $_GET["idVideo"];
 $flavorParamsId = $_GET["typeFlavor"];
 $priority = null;
 $result = $client->flavorAsset->convert($entryId, $flavorParamsId, $priority);
-
 ?>

@@ -1035,6 +1035,13 @@ class UploadHandler
                         $file->entryid = $entryid;
                         $file->uploaded_kaltura = true;
                     }
+                    //Convert to webm - abertran 20140520
+                    if ($file->uploaded_kaltura) {
+                        $flavorParamsId = 652501;
+                        $priority = null;
+                        $result = $client->flavorAsset->convert($entryid, $flavorParamsId, $priority);
+                    }
+                    // End                    
                 }
             }
 
