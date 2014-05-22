@@ -116,7 +116,7 @@ function kaltura_html5_comment_form($post_id)
         }
     }
 }
-add_action('wp_ajax_my_special_action', 'my_action_uploader_kaltura_callback');
+/*add_action('wp_ajax_my_special_action', 'my_action_uploader_kaltura_callback');
 function my_action_uploader_kaltura_callback() 
 {
     global $wpdb; // this is how you get access to the database
@@ -125,4 +125,4 @@ function my_action_uploader_kaltura_callback()
     echo $whatever;
     die(); // this is required to return a proper result
     
-}
+}*/
