@@ -37,7 +37,7 @@ switch ($lang){
     </li>
 
   	<li>
-  		<h2><a href="http://langblog.speakapps.org/langbloginfo<?php echo $ln;?>/" target="_blank"><?php _e('HELP', 'langblogR'); ?></a></h2></li>
+  		<h2><a href="http://langblog.speakapps.org/speakappsinfo/" target="_blank"><?php _e('HELP', 'langblogR'); ?></a></h2></li>
     </li>
 
     	<?php 
@@ -47,9 +47,6 @@ switch ($lang){
   	?>
     	<li>
     		<h2><a href="<?php echo get_option('siteurl'); ?>/wp-admin/" target="_blank"><?php _e('ADMINISTRATION', 'langblogR'); ?></a></h2>
-    	</li>
-    	<li>
-    		<h2><a href="http://langblog.speakapps.org/langblogsupport/" target="_blank"><?php _e('LANGblog support', 'langblogR'); ?></a></h2>
     	</li>
   	<?php 
   	} 

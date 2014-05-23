@@ -27,7 +27,7 @@ require_once( ABSPATH . WPINC . '/registration-functions.php');
 	
 	?>
 	
-	<li id="menu2" onclick="window.open('http://langblog.speakapps.org/langbloginfo<?php echo $ln;?>/');"><?php _e('HELP'); ?></li>
+	<li id="menu2" onclick="window.open('http://langblog.speakapps.org/speakappsinfo/');"><?php _e('HELP'); ?></li>
 		
       <ul id="subcat7" style="display:none; margin:0px; padding:0px;">
 			
@@ -39,7 +39,6 @@ require_once( ABSPATH . WPINC . '/registration-functions.php');
 			global $userdata; get_currentuserinfo(); if(current_user_can('edit_posts')){  
 		?>
   		<li id="menu2" onclick="document.location.href='<?php echo get_option('siteurl'); ?>/wp-admin/';"><?php _e('ADMINISTRATION'); ?></li>
-  		<li id="menu2" onclick="window.open('http://langblog.speakapps.org/langblogsupport/');"><?php _e('LANGblog support'); ?></li>
 													<?php } //end if?>
   </ul>
   <div id="cercador">
