@@ -31,4 +31,6 @@ Copy all files from wp-content/* to the folder wp-content/ in the wordpress dist
  https://github.com/UOC/LangBLOG/blob/master/doc/LANGblog-install.pdf?raw=true
 
 
-Speak Apps Project has been funded with support from the Lifelong Learning Programme of the European Commission. This document reflects only the views of the authors, and the European Commission cannot be held responsible for any use which may be made of the information contained therein.
+Speak Apps Project has been funded with support from the Lifelong Learning Programme of the European Commission. This document reflects only the views of the authors, and the European Commission cannot be held responsible for any use which may be made of the information contained therein. 
+
+![](http://www.speakapps.eu/wp-content/themes/speakapps/images/EU_flag.jpg) 
