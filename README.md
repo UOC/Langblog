@@ -1,13 +1,13 @@
-LangBLOG
+Langblog
 ========
 
-LANGblog is an audio/videoblog used for the teaching of oral production skills. It uses blogging technologies to create a forum that aids access to audio and video files, easy recording and uploading of audio and video files, and interaction among group members. Adapted from WordPress, audio and video posts are directly created online using Flash, with no software installation required.
+Langblog is an audio/videoblog used for the teaching of oral production skills. It uses blogging technologies to create a forum that aids access to audio and video files, easy recording and uploading of audio and video files, and interaction among group members. Adapted from WordPress, audio and video posts are directly created online using Flash, with no software installation required.
 
 # Install Apache, MySQL and wordpress and enable multisite
 Follow the instructions http://codex.wordpress.org/Create_A_Network. 
 
 # Insert your Kaltura profile data
-LANGblog requires a valid Kaltura account. In the file kaltura.cfg, which can be found in mu-plugins/blogtype/configuration, insert your Kaltura profile information.
+Langblog requires a valid Kaltura account. In the file kaltura.cfg, which can be found in mu-plugins/blogtype/configuration, insert your Kaltura profile information.
 
 Basically you have to add:
 * kaltura_cms_user=YOUR KALTURA USERNAME
@@ -28,7 +28,7 @@ Copy all files from wp-content/* to the folder wp-content/ in the wordpress dist
  http://<ip>/wordpress/index.php
 
 ## More information 
- https://github.com/UOC/LangBLOG/blob/master/doc/LANGblog-install.pdf?raw=true
+ https://github.com/UOC/Langblog/blob/master/doc/LANGblog-install.pdf?raw=true
 
 
 Speak Apps Project has been funded with support from the Lifelong Learning Programme of the European Commission. This document reflects only the views of the authors, and the European Commission cannot be held responsible for any use which may be made of the information contained therein. 
